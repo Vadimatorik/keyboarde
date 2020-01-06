@@ -25,6 +25,17 @@ private:
     QTcpSocket *socket = nullptr;
 
 private:
+    enum KEY_NUM {
+        B_UP = 0,
+        B_DOWN = 1,
+        B_LEFT = 2,
+        B_RIGHT = 3,
+        B_ENTER = 4,
+        B_RETURN = 5,
+        B_MENU = 6
+    };
+
+private:
     QPushButton *b_meny;
     QPushButton *b_up;
     QPushButton *b_return;
