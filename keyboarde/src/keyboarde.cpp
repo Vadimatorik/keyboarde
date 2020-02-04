@@ -11,12 +11,19 @@ keyboarde::keyboarde (QWidget *parent) : QWidget(parent) {
     this->socket = new QTcpSocket(this);
 
     this->b_meny = new QPushButton("Meny");
+    this->b_meny->setFocusPolicy(Qt::NoFocus);
     this->b_up = new QPushButton("Up");
+    this->b_up->setFocusPolicy(Qt::NoFocus);
     this->b_return = new QPushButton("Return");
+    this->b_return->setFocusPolicy(Qt::NoFocus);
     this->b_left = new QPushButton("Left");
+    this->b_left->setFocusPolicy(Qt::NoFocus);
     this->b_enter = new QPushButton("Enter");
+    this->b_enter->setFocusPolicy(Qt::NoFocus);
     this->b_right = new QPushButton("Right");
+    this->b_right->setFocusPolicy(Qt::NoFocus);
     this->b_down = new QPushButton("Down");
+    this->b_down->setFocusPolicy(Qt::NoFocus);
 
     l->addWidget(b_meny, 1, 1);
     l->addWidget(b_up, 2, 2);
@@ -29,6 +36,8 @@ keyboarde::keyboarde (QWidget *parent) : QWidget(parent) {
     if (!this->server->listen(QHostAddress::LocalHost, 56000)) {
         exit(errno);
     }
+
+    this->installEventFilter(this);
 
     connect(this->server, SIGNAL(newConnection()), this, SLOT(new_connection()));
 }

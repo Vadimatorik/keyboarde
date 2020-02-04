@@ -21,6 +21,12 @@ private slots:
     void client_disconnected ();
 
 private:
+    bool eventFilter (QObject *obj, QEvent *event);
+
+private:
+    void key_handler (QKeyEvent *e, bool state);
+
+private:
     QTcpServer *server = nullptr;
     QTcpSocket *socket = nullptr;
 
