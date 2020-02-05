@@ -45,6 +45,14 @@ void keyboarde::server_read () {
         case KEY_NUM::B_MENU:
             state = this->b_meny->isDown();
             break;
+
+        case KEY_NUM::B_VOLUME_UP:
+            state = this->b_volume_up->isDown();
+            break;
+
+        case KEY_NUM::B_VOLUME_DOWN:
+            state = this->b_volume_down->isDown();
+            break;
     }
 
     data_out.append(state);
@@ -80,6 +88,14 @@ void keyboarde::key_handler (QKeyEvent *e, bool state) {
 
         case Qt::Key_R:
             this->b_return->setDown(state);
+            break;
+
+        case Qt::Key_Plus:
+            this->b_volume_up->setDown(state);
+            break;
+
+        case Qt::Key_Minus:
+            this->b_volume_down->setDown(state);
             break;
     }
 }

@@ -42,7 +42,9 @@ private:
         B_RIGHT = 3,
         B_ENTER = 4,
         B_RETURN = 5,
-        B_MENU = 6
+        B_MENU = 6,
+        B_VOLUME_UP = 7,
+        B_VOLUME_DOWN = 8
     };
 
 private:
@@ -54,4 +56,6 @@ private:
     QPushButton *b_right;
     QPushButton *b_down;
 
+    QPushButton *b_volume_up;
+    QPushButton *b_volume_down;
 };
