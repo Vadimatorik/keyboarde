@@ -3,7 +3,7 @@
 #include <QGridLayout>
 #include <QNetworkDatagram>
 
-keyboarde::keyboarde (QWidget *parent) : QWidget(parent) {
+keyboarde::keyboarde (QWidget *parent, keyboarde_cfg *cfg) : QWidget(parent) {
     QGridLayout *l = new QGridLayout(this);
     this->setLayout(l);
 
@@ -33,7 +33,7 @@ keyboarde::keyboarde (QWidget *parent) : QWidget(parent) {
     l->addWidget(b_right, 3, 3);
     l->addWidget(b_down, 4, 2);
 
-    if (!this->server->listen(QHostAddress::LocalHost, 56000)) {
+    if (!this->server->listen(QHostAddress::LocalHost, cfg->port)) {
         exit(errno);
     }
 

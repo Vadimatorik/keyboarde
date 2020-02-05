@@ -9,11 +9,15 @@
 #include <QTcpSocket>
 #include <QPushButton>
 
+struct keyboarde_cfg {
+    uint16_t port;
+};
+
 class keyboarde : public QWidget {
 Q_OBJECT
 
 public:
-    explicit keyboarde (QWidget *parent = nullptr);
+    explicit keyboarde (QWidget *parent, keyboarde_cfg *cfg);
 
 private slots:
     void new_connection ();
